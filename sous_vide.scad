@@ -15,23 +15,28 @@ module box() {
 		difference() {
 			difference() {
 				difference() {
-					cube([130, 130, 70]);
-					translate([5, 5, 5]) {
-						cube([120, 120, 70]);
+					difference() {
+						cube([130, 130, 70]);
+						translate([5, 5, 5]) {
+							cube([120, 120, 70]);
+						}
+					}
+					translate([10, 0, 5]) {
+						cube([110, 5, 70]);
 					}
 				}
-				translate([10, 0, 5]) {
-					cube([110, 5, 70]);
+				translate([120, 35, 15]) {
+					color("red") cube([15, 80, 40]);
 				}
 			}
-			translate([120, 35, 15]) {
-				color("red") cube([15, 80, 40]);
+			translate([125, 17, 35]) {
+				rotate([0, 90, 0]) {
+					color("green") cylinder(h=10, r1=4, r2=4);
+				}
 			}
 		}
-		translate([125, 17, 35]) {
-			rotate([0, 90, 0]) {
-				color("green") cylinder(h=10, r1=4, r2=4);
-			}
+		translate([-5, 40, 20]) {
+			power_plug();
 		}
 	}
 
@@ -51,6 +56,25 @@ module box() {
 		screw_support();
 	}
 }
+
+module power_plug() {
+	difference() {
+		difference() {
+			cube([15, 45, 30]);
+			translate([0, 5, -12]) {
+				rotate([45, 0, 0]) {
+					color("red") cube([15, 15, 25]);
+				}
+			}
+		}
+		translate([0, 30, -2]) {
+			rotate([-45, 0, 0]) {
+				color("red") cube([15, 15, 25]);
+			}
+		}
+	}
+}
+
 
 
 
